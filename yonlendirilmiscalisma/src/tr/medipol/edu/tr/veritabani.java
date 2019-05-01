@@ -2,6 +2,7 @@ package tr.medipol.edu.tr;
 import  java.sql.*;
 
 public class veritabani {
+	public static String tip;
 
 	
 	private static Statement veritabaniStatement;
@@ -29,52 +30,73 @@ public class veritabani {
 	}
 	
 	public static boolean tablolariOlustur() {
-		
+	
 		try  {
 			//"urunler" tablosu: urunid eþsiz , urunadi, urunkategori, fiyat tl 
 			veritabaniStatement.executeUpdate(
 					"CREATE TABLE "
-							+ "kullanicilarr ("
-								+ "kullaniciadi varchar(20),"
+							+ "kullanicilar ("
+								+ "kullaniciid varchar(20),"
 								+ "sifre varchar(15), "
-								+ "kullanicitipi varchar(10) "
+								+ "kullanicitipi varchar(10),"
+								+ "PRIMARY KEY (kullaniciid)"
 							+ ")"
 			);
 			// "uyeler" tablosu: kullanici_adi, kullanici_tipi, yas, cinsiyet, sifre
 			
-			System.out.println("Tablolar basariyla olsuturuldu");
+			System.out.println("Tablolar basariyla olusturuldu");
 			
 		} catch(Exception e) {
-			System.out.println("Tablo zaten mevcut. Tekrar olusturulmayacak: ");
+			System.out.println("Tablo zaten mevcut. Tekrar olusturulmayacak: "+e.getMessage());
 		}
+		
 		
 		return true;
 	}
 	public static void kullanicilariOlustur() {
 		try  {
 			// "kullanicilar" tablosu: kullanici_adi, kullanici_tipi, yas, cinsiyet, sifre
-			veritabaniStatement.executeUpdate("INSERT INTO kullanicilarr VALUES ( "
-					+ "'efkan', '123', 'e'"
+			// efkan 123 a
+			// mehmet 123 p
+			// ayþe 123 k
+			veritabaniStatement.executeUpdate("INSERT INTO kullanicilar VALUES ( "
+					+ "'ayþe', '123', 'k'"
 					+ ")");
 			System.out.println("Sistem kullanicilari olusturuldu.");
+			//veritabaniStatement.executeUpdate("TRUNCATE TABLE kullanicilar");
 		} catch(Exception e) {
 			System.out.println("Ayni id'li kayit olusturulamaz :" + e.getMessage());
 		}
 	}
+	public static boolean kullaniciekle(String id,String sifre,String tipi) {
+		try  {
+			if (id ==null||sifre==null||tipi==null) {
+				return false;
+			}
+			veritabaniStatement.executeUpdate("INSERT INTO kullanicilar VALUES ( "
+					+ "'"+id+"', '"+sifre+"', '"+tipi+"'"
+					+ ")");
+			System.out.println("Sistem kullanicilari olusturuldu.");
+		    return true;
+		} catch(Exception e) {
+			System.out.println("Ayni id'li kayit olusturulamaz :" + e.getMessage());
+		}
+		return false;
+	}
 	public static boolean kullanicikontrol(String k,String s) {
 		try {
 			ResultSet sonuclar = veritabaniStatement.executeQuery(
-					"SELECT * FROM kullanicilarr");
+					"SELECT * FROM kullanicilar");
 			while (sonuclar.next()) {
-				String kul=sonuclar.getString("kullaniciadi");
+				String kul=sonuclar.getString("kullaniciid");
 				String sif=sonuclar.getString("sifre");
-				System.out.println("Efkan");
 				if (kul.equals(k) && sif.equals(s)) {
+				    tip=sonuclar.getString("kullanicitipi");
 					return true;
 				}
 			}
 		}catch (Exception e){
-			
+			System.out.println(e.getMessage());
 		}
 		return false;
 	}

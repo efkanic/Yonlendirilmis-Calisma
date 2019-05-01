@@ -10,6 +10,7 @@ public class girisekran {
 	static JTextField kullaniciadi = new JTextField();
 	static JTextField sifre = new JTextField();
 	static JButton giris = new JButton("Giriþ");
+    static JFrame jf = new JFrame();
 
 	public static void main(String[] args) {
 		
@@ -21,23 +22,40 @@ public class girisekran {
 		
 		
 	}
+	
 	private static Object giris(ActionEvent e) {
 		if(veritabani.kullanicikontrol(kullaniciadi.getText().toString(), sifre.getText().toString())==true) {
-			System.out.println("Hoþgeldiniz.");
+			String tip =veritabani.tip;
+			if (tip.equals("a")) {
+			ekranigizle();
+			admin_ekran.ekraniOlustur();
+			}
+			else if (tip.equals("p")) {
+				ekranigizle();
+				personel_ekran.ekraniOlustur();
+			}
+			else if (tip.equals("k")) {
+				ekranigizle();
+				kasiyer_ekran.ekraniOlustur();
+			}
 		}
 		else {
 			System.out.println("Kullanýcý bulunamadý.");
 		}
 		return e;
 	}
+	public static void geridon() {
+		jf.setVisible(true);
+	}
+	private static void ekranigizle() {
+		jf.setVisible(false);
+	}
+	@SuppressWarnings("deprecation")
 	public static void ekraniOlustur() {
-		JFrame jf = new JFrame();
 		jf.setTitle("Giriþ");
 		jf.setVisible(true);
 		jf.setSize(400,350);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
 		JPanel satir1 = new JPanel();
 		satir1.setLayout(null);
 		jf.add(satir1);

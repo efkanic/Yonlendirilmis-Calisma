@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class admin_ekran {
-    static JLabel label1 = new JLabel("Kullanýcý Adý:");
-    static JLabel label2 = new JLabel("Þifre");
+    static JLabel label1 = new JLabel("KullanÃ½cÃ½ AdÃ½:");
+    static JLabel label2 = new JLabel("Ãžifre");
 	static JTextField kullaniciadi = new JTextField();
 	static JTextField sifre = new JTextField();
-	static JButton giris = new JButton("Kullanýcý ekle");
+	static JButton kullaniciekle = new JButton("KullanÄ±cÄ± ekle");
+	static JButton urunekle = new JButton("ÃœrÃ¼n ekle");
 	static JFrame jf = new JFrame();
 	
 	private static Object giris(ActionEvent e) {
@@ -17,15 +18,21 @@ public class admin_ekran {
 		kullaniciolustur.ekraniOlustur();
 		return null;
 	}
+	private static Object urunekle(ActionEvent e) {
+		ekranigizle();
+		urunolustur.ekraniOlustur();
+		return null;
+	}
 	private static void ekranigizle() {
 		jf.setVisible(false);
 	}
 public static void ekraniOlustur() {
-	jf.setTitle("Admin Ekraný");
+	jf.setTitle("Admin EkranÃ½");
 	jf.setVisible(true);
 	jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	giris.addActionListener(e->giris(e));
+	kullaniciekle.addActionListener(e->kullaniciekle(e));
+	urunekle.addActionListener(e->urunekle(e));
 	
 	JPanel satir1 = new JPanel();
 	satir1.setLayout(null);
@@ -33,12 +40,14 @@ public static void ekraniOlustur() {
 	satir1.add(kullaniciadi);
 	satir1.add(label1);
 	satir1.add(label2);
-	satir1.add(giris);
+	satir1.add(kullaniciekle);
+	satir1.add(urunekle);
 	label1.setBounds(0,20,90,35);
 	label2.setBounds(0,60,90,35);
 	kullaniciadi.setBounds(100,20,120,35);
 	sifre.setBounds(100,60,120,35);
-	giris.setBounds(0, 100, 100, 50);
+	kullaniciekle.setBounds(0, 100, 100, 50);
+	urunekle.setBounds(0, 150, 150, 100);
 	
 	
 }

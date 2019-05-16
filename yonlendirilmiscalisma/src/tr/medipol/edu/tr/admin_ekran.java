@@ -13,7 +13,7 @@ public class admin_ekran {
 	static JButton urunekle = new JButton("Ürün ekle");
 	static JFrame jf = new JFrame();
 	
-	private static Object giris(ActionEvent e) {
+	private static Object kullaniciekle(ActionEvent e) {
 		ekranigizle();
 		kullaniciolustur.ekraniOlustur();
 		return null;

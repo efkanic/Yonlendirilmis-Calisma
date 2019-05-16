@@ -5,8 +5,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class kullaniciolustur {
-    static JLabel label1 = new JLabel("Kullanýcý Adý:");
-    static JLabel label2 = new JLabel("Þifre");
+	//OKK..
+    static JLabel label1 = new JLabel("KullanÃ½cÃ½ AdÃ½:");
+    static JLabel label2 = new JLabel("Ãžifre");
 	static JTextField kullaniciadi = new JTextField();
 	static JTextField sifre = new JTextField();
 	static JTextField tipi = new JTextField();
@@ -15,15 +16,15 @@ public class kullaniciolustur {
 	
 	private static Object giris(ActionEvent e) {
 		if (veritabani.kullaniciekle(kullaniciadi.getText(), sifre.getText(), tipi.getText())==true){
-			System.out.println("oluþturuldu");
+			System.out.println("oluÃ¾turuldu");
 		}
 		else 
-			System.out.println("Boþ yapmayýnýz.");
+			System.out.println("BoÃ¾ yapmayÃ½nÃ½z.");
 		return null;
 	}
 	
 	public static void ekraniOlustur() {
-		jf.setTitle("Kullanýcý Ekle");
+		jf.setTitle("KullanÃ½cÃ½ Ekle");
 		jf.setVisible(true);
 		jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

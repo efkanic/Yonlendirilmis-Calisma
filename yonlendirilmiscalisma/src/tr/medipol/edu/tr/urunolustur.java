@@ -21,7 +21,7 @@ public class urunolustur {
 
 	private static Object urunekle(ActionEvent e) {
 
-		if (veritabani.kullaniciekle(urunadi.getText(), barkod.getText())==true){
+		if (veritabani.urunekle(urunadi.getText(), barkod.getText())==true){
 
 			System.out.println("oluþturuldu");
 

@@ -5,11 +5,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class girisekran {
-    static JLabel label1 = new JLabel("Kullanýcý Adý:");
-    static JLabel label2 = new JLabel("Þifre");
+    static JLabel label1 = new JLabel("KullanÃ½cÃ½ AdÃ½:");
+    static JLabel label2 = new JLabel("Ãžifre");
 	static JTextField kullaniciadi = new JTextField();
 	static JTextField sifre = new JTextField();
-	static JButton giris = new JButton("Giriþ");
+	static JButton giris = new JButton("GiriÃ¾");
     static JFrame jf = new JFrame();
 
 	public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class girisekran {
 		veritabani.kullanicilariOlustur();
 		ekraniOlustur();
 		giris.addActionListener(e->giris(e));
-		
+		//OK..
 		
 	}
 	
@@ -40,7 +40,7 @@ public class girisekran {
 			}
 		}
 		else {
-			System.out.println("Kullanýcý bulunamadý.");
+			System.out.println("KullanÃ½cÃ½ bulunamadÃ½.");
 		}
 		return e;
 	}
@@ -52,7 +52,7 @@ public class girisekran {
 	}
 	@SuppressWarnings("deprecation")
 	public static void ekraniOlustur() {
-		jf.setTitle("Giriþ");
+		jf.setTitle("GiriÃ¾");
 		jf.setVisible(true);
 		jf.setSize(400,350);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

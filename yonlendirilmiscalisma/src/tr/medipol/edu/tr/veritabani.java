@@ -32,7 +32,7 @@ public class veritabani {
 	public static boolean tablolariOlustur() {
 	
 		try  {
-			//"urunler" tablosu: urunid eþsiz , urunadi, urunkategori, fiyat tl 
+			//"urunler" tablosu: urunid eÃ¾siz , urunadi, urunkategori, fiyat tl 
 			veritabaniStatement.executeUpdate(
 					"CREATE TABLE "
 							+ "kullanicilar ("
@@ -40,6 +40,13 @@ public class veritabani {
 								+ "sifre varchar(15), "
 								+ "kullanicitipi varchar(10),"
 								+ "PRIMARY KEY (kullaniciid)"
+							+ ")"
+			);
+			veritabaniStatement.executeUpdate(
+					"CREATE TABLE "
+							+ "urunler ("
+								+ "urunadi varchar(20),"
+								+ "barkod varchar(15) "
 							+ ")"
 			);
 			// "uyeler" tablosu: kullanici_adi, kullanici_tipi, yas, cinsiyet, sifre
@@ -58,9 +65,9 @@ public class veritabani {
 			// "kullanicilar" tablosu: kullanici_adi, kullanici_tipi, yas, cinsiyet, sifre
 			// efkan 123 a
 			// mehmet 123 p
-			// ayþe 123 k
+			// ayÃ¾e 123 k
 			veritabaniStatement.executeUpdate("INSERT INTO kullanicilar VALUES ( "
-					+ "'ayþe', '123', 'k'"
+					+ "'ayÃ¾e', '123', 'k'"
 					+ ")");
 			System.out.println("Sistem kullanicilari olusturuldu.");
 			//veritabaniStatement.executeUpdate("TRUNCATE TABLE kullanicilar");
@@ -75,6 +82,21 @@ public class veritabani {
 			}
 			veritabaniStatement.executeUpdate("INSERT INTO kullanicilar VALUES ( "
 					+ "'"+id+"', '"+sifre+"', '"+tipi+"'"
+					+ ")");
+			System.out.println("Sistem kullanicilari olusturuldu.");
+		    return true;
+		} catch(Exception e) {
+			System.out.println("Ayni id'li kayit olusturulamaz :" + e.getMessage());
+		}
+		return false;
+	}
+	public static boolean urunekle(String urunadi,String barkod) {
+		try  {
+			if (urunadi ==null||barkod==null) {
+				return false;
+			}
+			veritabaniStatement.executeUpdate("INSERT INTO urunler VALUES ( "
+					+ "'"+urunadi+"', '"+barkod+"'"
 					+ ")");
 			System.out.println("Sistem kullanicilari olusturuldu.");
 		    return true;

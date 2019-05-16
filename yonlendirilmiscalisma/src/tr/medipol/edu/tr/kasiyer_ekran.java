@@ -3,15 +3,15 @@ package tr.medipol.edu.tr;
 import javax.swing.*;
 
 public class kasiyer_ekran {
-    static JLabel label1 = new JLabel("Kullanýcý Adý:");
-    static JLabel label2 = new JLabel("Þifre");
+    static JLabel label1 = new JLabel("KullanÃ½cÃ½ AdÃ½:");
+    static JLabel label2 = new JLabel("Ãžifre");
 	static JTextField kullaniciadi = new JTextField();
 	static JTextField sifre = new JTextField();
-	static JButton giris = new JButton("Giriþ");
-
+	static JButton giris = new JButton("GiriÃ¾");
+	//satÄ±ÅŸ iÃ§in dÃ¼zenlenecek...
 public static void ekraniOlustur() {
 	JFrame jf = new JFrame();
-	jf.setTitle("Giriþ");
+	jf.setTitle("GiriÃ¾");
 	jf.setVisible(true);
 	jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

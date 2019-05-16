@@ -4,13 +4,14 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 public class personel_ekran {
-    static JLabel label1 = new JLabel("Kullanýcý Adý:");
-    static JLabel label2 = new JLabel("Þifre");
+    static JLabel label1 = new JLabel("KullanÃ½cÃ½ AdÃ½:");
+    static JLabel label2 = new JLabel("Ãžifre");
 	static JTextField kullaniciadi = new JTextField();
 	static JTextField sifre = new JTextField();
-	static JButton giris = new JButton("Çýkýþ");
+	static JButton giris = new JButton("Ã‡Ã½kÃ½Ã¾");
 	static JFrame jf = new JFrame();
-	
+	//Veri tabanÄ±na eriÅŸim saÄŸlanacak...
+	//Yetkilendirme yapÄ±lacak...
 	
 private static Object giris(ActionEvent e) {
 	jf.setVisible(false);
@@ -19,7 +20,7 @@ private static Object giris(ActionEvent e) {
 }
 
 public static void ekraniOlustur() {
-	jf.setTitle("Personel Ekraný");
+	jf.setTitle("Personel EkranÃ½");
 	jf.setVisible(true);
 	jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

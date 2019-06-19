@@ -3,44 +3,46 @@ package tr.medipol.edu.tr;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
+
 public class personel_ekran {
-    static JLabel label1 = new JLabel("KullanÃ½cÃ½ AdÃ½:");
-    static JLabel label2 = new JLabel("Ãifre");
-	static JTextField kullaniciadi = new JTextField();
-	static JTextField sifre = new JTextField();
-	static JButton giris = new JButton("Ã‡Ã½kÃ½Ã¾");
+	static JButton urunbl = new JButton("Ürün bul");
+	static JButton cikis = new JButton("Çıkış");
+	static JButton satis = new JButton("Satislar");
 	static JFrame jf = new JFrame();
-	//Veri tabanÄ±na eriÅŸim saÄŸlanacak...
-	//Yetkilendirme yapÄ±lacak...
-	
-private static Object giris(ActionEvent e) {
-	jf.setVisible(false);
-	girisekran.geridon();
-	return null;
-}
 
-public static void ekraniOlustur() {
-	jf.setTitle("Personel EkranÃ½");
-	jf.setVisible(true);
-	jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-	jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	giris.addActionListener(e->giris(e));
-	
-	JPanel satir1 = new JPanel();
-	satir1.setLayout(null);
-	jf.add(satir1);
-	satir1.add(kullaniciadi);
-	satir1.add(label1);
-	satir1.add(label2);
-	satir1.add(sifre);
-	satir1.add(giris);
-	label1.setBounds(0,20,90,35);
-	label2.setBounds(0,60,90,35);
-	kullaniciadi.setBounds(100,20,120,35);
-	sifre.setBounds(100,60,120,35);
-	giris.setBounds(0, 100, 100, 50);
-	
-	
-}
+	private static Object urunbl(ActionEvent e) {
+		jf.dispose();
+		urunbull.ekraniOlustur();
+		return null;
+	}
+	private static Object cikis(ActionEvent e) {
+		jf.dispose();
+		girisekran.ekraniOlustur();
+		return null;
+	}
+	private static Object satis(ActionEvent e) {
+		jf.dispose();
+		satisekran.ekraniOlustur();
+		return null;
+	}
 
+	public static void ekraniOlustur() {
+		jf.setTitle("Personel Ekranı");
+		jf.setVisible(true);
+		jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		urunbl.addActionListener(e -> urunbl(e));
+		cikis.addActionListener(e -> cikis(e));
+		satis.addActionListener(e -> satis(e));
+
+		JPanel satir1 = new JPanel();
+		satir1.setLayout(null);
+		jf.setContentPane(satir1);
+		satir1.add(urunbl);
+		satir1.add(cikis);
+		satir1.add(satis);
+		urunbl.setBounds(0, 100, 100, 50);
+		cikis.setBounds(150, 100, 100, 50);
+		satis.setBounds(300, 100, 100, 50);
+	}
 }
